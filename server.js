@@ -16,8 +16,11 @@ const cors = require('cors');
 //middle ware
 const PORT = process.env.PORT || 10000
 const app = express()
-app.use(cors());
 app.use(express.json())
+app.use(cors({
+    origin: 'https://epic-eats-frontend-4q9o.vercel.app/', 
+    credentials: true
+  }));
 
 
 //database connection
