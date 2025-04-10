@@ -17,10 +17,14 @@ const cors = require('cors');
 const PORT = process.env.PORT || 10000
 const app = express()
 app.use(express.json())
+
 app.use(cors({
-    origin: ['http://localhost:3000','https://epic-eats-frontend.vercel.app/'], 
-    credentials: true
-  }));
+  origin: ['https://epic-eats-frontend.vercel.app', 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
 
 
 //database connection
