@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 10000
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: 'https://epic-eats-frontend.vercel.app/', 
+    origin: ['http://localhost:3000','https://epic-eats-frontend.vercel.app/'], 
     credentials: true
   }));
 
@@ -37,15 +37,6 @@ app.get('/', async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-})
-
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000")
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    )
-    next()
 })
 
 // API registration page
