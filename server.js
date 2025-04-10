@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 10000
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: 'https://epic-eats-frontend-4q9o.vercel.app/', 
+    origin: 'https://epic-eats-frontend.vercel.app/', 
     credentials: true
   }));
 
