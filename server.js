@@ -11,12 +11,16 @@ const itemRoute= require('./Routes/itemRoute')
 const CategoryRoute=require('./Routes/categoryRoute')
 const OrderDataRoute=require('./Routes/OrderDataRoute')
 const cors = require('cors');
+let compression;
+try { compression = require('compression'); } catch (e) { compression = null; }
 
 
 //middle ware
 const PORT = process.env.PORT || 10000
 const app = express()
 app.use(express.json())
+
+if (compression) app.use(compression());
 
 app.use(cors({
   origin: ['https://epic-eats-frontend.vercel.app', 'http://localhost:3000'],
