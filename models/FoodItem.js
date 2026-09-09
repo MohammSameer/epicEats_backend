@@ -8,4 +8,7 @@ const foodItemSchema = new mongoose.Schema({
     description: String
 });
 
+// add index to speed up category queries
+foodItemSchema.index({ CategoryName: 1 });
+
 module.exports = mongoose.model('food_items', foodItemSchema);
